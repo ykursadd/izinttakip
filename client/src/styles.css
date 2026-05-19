@@ -1,0 +1,396 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, sans-serif;
+  background-color: #f2f6fb;
+  color: #1f2937;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #eef4ff 0%, #f8fafc 100%);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-logo {
+  width: 160px;
+  height: 98px;
+  border-radius: 16px;
+  background: none;
+  padding: 8px;
+  border:none;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+header p {
+  margin: 6px 0 0;
+  color: #475569;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+nav button {
+  border: none;
+  border-radius: 9999px;
+  padding: 10px 16px;
+  background: #f8fafc;
+  color: #334155;
+  transition: background 0.2s ease;
+}
+
+nav button.active,
+nav button:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+.user-panel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.user-panel label,
+.user-panel p {
+  margin: 0;
+  color: #334155;
+}
+
+.user-panel select {
+  margin-left: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+}
+
+.approval-actions textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  resize: vertical;
+}
+
+.approval-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.approval-buttons button {
+  padding: 10px 14px;
+  border-radius: 9999px;
+}
+
+.approval-buttons button.reject {
+  background: #ef4444;
+  color: #fff;
+}
+
+main section {
+  margin-bottom: 24px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.dashboard-top-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.dashboard-clock,
+.dashboard-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dashboard-clock p {
+  font-size: 3.0rem;
+  font-weight: 650;
+  margin: 0;
+}
+
+.dashboard-clock small {
+  color: #64748b;
+}
+
+.dashboard-filter select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+}
+
+.stat-card,
+.card,
+.table-card,
+.profile-card,
+.form-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.stat-card h3,
+.profile-card h3 {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+.stat-card p {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 270px 1fr;
+  gap: 20px;
+}
+
+.profile-card img {
+  width: 100%;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.profile-card p,
+.form-card p {
+  margin: 8px 0 0;
+}
+
+.form-card label {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  background: #fff;
+  margin-top: 6px;
+}
+
+.form-card button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 9999px;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.phone-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.phone-input span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: #334155;
+}
+
+.phone-input input {
+  flex: 1;
+}
+
+.report-link {
+  margin-top: 6px;
+}
+
+.table-card table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-card th,
+.table-card td {
+  text-align: left;
+  padding: 14px 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.table-card th {
+  color: #334155;
+  font-weight: 700;
+}
+
+/* Pagination: horizontal, scrollable and compact page buttons */
+.pagination.pages {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 6px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pagination.pages::-webkit-scrollbar {
+  height: 8px;
+}
+.pagination.pages::-webkit-scrollbar-thumb {
+  background: rgba(37,99,235,0.25);
+  border-radius: 8px;
+}
+
+.page-button {
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px;
+  border-radius: 9999px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  color: #1f2937;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+
+.page-button:hover {
+  background: #eef2ff;
+  transform: translateY(-2px);
+}
+
+.page-button.active {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+  box-shadow: 0 6px 18px rgba(37,99,235,0.18);
+}
+
+/* When many pages, keep buttons compact on small screens */
+@media (max-width: 520px) {
+  .page-button {
+    min-width: 30px;
+    height: 30px;
+    padding: 0 8px;
+    font-size: 0.9rem;
+  }
+}
+
+.pagination .ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  color: #64748b;
+  font-weight: 700;
+}
+
+footer {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+  border-top: 1px solid #e2e8f0;
+  color: #64748b;
+}
+
+.notification-toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 1000;
+  background: #2563eb;
+  color: white;
+  padding: 14px 18px;
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+}
+
+.status-message {
+  margin: 0;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+@media (max-width: 800px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -25,7 +25,13 @@ if (!fs.existsSync(uploadFolder)) {
 
 const corsOptions = {
   origin: function (origin, callback) {
-    const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174', 'http://127.0.0.1:5173', 'http://127.0.0.1:5174'];
+    const allowedOrigins = [
+      'http://localhost:5173',
+      'http://localhost:5174',
+      'http://127.0.0.1:5173',
+      'http://127.0.0.1:5174',
+      'https://izinttakip.onrender.com'
+    ];
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -36,6 +42,12 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use('/uploads', express.static(uploadFolder));
+
+// Frontend static dosyaları
+const clientDistFolder = path.join(__dirname, '../client/dist');
+if (fs.existsSync(clientDistFolder)) {
+  app.use(express.static(clientDistFolder));
+}
 
 const users = [
   {
@@ -499,6 +511,16 @@ app.post('/api/attendance', authenticateToken, (req, res) => {
   }
   attendance.push({ id: uuidv4(), userId, date, status, createdAt: new Date().toISOString() });
   res.status(201).json({ message: 'Devamsızlık kaydedildi' });
+});
+
+// SPA Fallback: Tüm API olmayan route'lar için index.html serve et
+app.use((req, res) => {
+  const indexPath = path.join(__dirname, '../client/dist/index.html');
+  if (fs.existsSync(indexPath)) {
+    res.sendFile(indexPath);
+  } else {
+    res.status(404).json({ error: 'Frontend build edilmedi.' });
+  }
 });
 
 const server = app.listen(port, () => {
